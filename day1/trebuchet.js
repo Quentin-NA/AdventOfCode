@@ -1,4 +1,6 @@
-import fs from 'fs';
+const fs = require('fs');
 
-const lines = fs.readFileSync('exemples.txt', 'utf-8').trim()
-console.log(lines)
+const content = fs.readFileSync('exemples.txt', 'utf-8').trim();
+const lines = content.split('\n').map(line => line.replace('\r', ''));
+
+console.log(lines);
