@@ -11,36 +11,11 @@ console.log(lines)
 //  What is the sum of the IDs of those games?
 
   const resultObject = {};
-let sets = []
-  lines.forEach((gameString, gameIndex) => {
+let games = []
+  lines.forEach((gameString) => {
     const games = gameString.split(';');
+    let firstSet
+    firstSet = games[0].split(":").pop()
+    games.splice(0, 1, firstSet)
     console.log(games)
-    // for (let i = 0; )
-    sets = games[0].split(":").pop()
-    console.log(sets)
-
-  })
-
-// lines.forEach((gameString, gameIndex) => {
-//   const [gameHeader, ...sets] = gameString.split(';');
-
-//   const gameKey = `Game ${gameIndex + 1}`;
-//   resultObject[gameKey] = {};
-
-//   sets.forEach((setString, setIndex) => {
-//     const setKey = `Set ${setIndex + 1}`;
-//     resultObject[gameKey][setKey] = [];
-
-//     const scores = setString.split(',').map((score) => {
-//       const [count, color] = score.trim().split(/\s+/);
-//       return {
-//         score: parseInt(count, 10),
-//         color: color.toLowerCase(),
-//       };
-//     });
-
-//     resultObject[gameKey][setKey] = scores;
-//   });
-// });
-
-// console.dir(resultObject, { depth: null });
+})
